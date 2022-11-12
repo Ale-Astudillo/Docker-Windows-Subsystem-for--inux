@@ -1,0 +1,76 @@
+	Instalar Docker con Microsoft-Windows-Subsystem-Linux
+
+**********	PRIMEROS PASOS			**********
+
+1. Habilitar el Virtualizador en la BIOS del computador
+2. Verificar en el Administrador de Tareas - Rendimiento
+	CPU - Virtualización: Habilitado
+3. Ingresar a PowerShell como administrador
+
+**********	INSTALACIÓN Windows Subsystem for Linux		**********
+
+1. Iniciamos proceso de habilitar Windows Subsystem for Linux en versión 2
+	dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+2. Activar caracteristicas de virtualización
+	dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+3. Reiniciamos el Computador
+
+**********	INSTALACIÓN PAQUETE Windows Subsystem for Linux		**********
+
+1. Descargar paquete
+	https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+
+2. Instalar (Todo SIGUIENTE)
+
+3. En PowerShell como administrador colocamos versión por defecto
+	wsl --set-default-version 2
+
+4. Instalamos una versión de Linux
+	- Ingresamos a Microsoft Store del computador
+	- Buscamos Ubuntu
+	- Instalamos Ubuntu 20.04.5 LTS
+	- Damos click en ABRIR para q se inicie la primera vez nuestro Ubuntu	
+	- Colocamos un usuario que recordemos y una clave sensilla
+		aleastu
+		1234
+	-Actualizar paquetes 
+		sudo apt update && sudo apt upgrade
+
+5. En el PoweShell colocamos la versión de Windows Virtualizado para Windows Subsystem for Linux
+	wsl --set-default ubuntu-20.04.5
+
+**********	INSTALACIÓN DOCKER DESKTOP	**********	
+
+1. Descargar https://www.docker.com/products/docker-desktop/
+
+2. Instalamos Docker - Instalamos los paquetes que detecte
+
+3. Dar click en cierre de sesión y reinicio
+
+4. Validamos WSL Ingration en Docker Desktop
+	- Configuración
+	- Resources
+		* WSL Ingration 
+
+
+
+**********	RECURSOS DE INSTALACIÓN UTILIZADOS	**********
+1. Aprende a instalar Docker en Windows 
+	https://www.youtube.com/watch?v=9awV3Y-rpI0
+
+2. Recurso de Contenedor con configuración PHP
+	https://github.com/techjourneyco/dockerphp
+
+3. Aprende a configurar PHP Symfony Framework en un contenedor Docker
+	https://www.youtube.com/watch?v=aZTS51uKCdY
+
+4. Si te refleja error en las versiones actuales de docker descargar
+	https://docs.docker.com/desktop/previous-versions/3.x-windows/
+
+
+
+
+
+
